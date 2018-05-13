@@ -16,7 +16,9 @@ public class Strobogrammtic {
 
     public static List<Integer> compute(int a, int b) {
         List<String> result = new ArrayList<>();
-        for (int i=Math.min(a,b);i<=Math.max(a,b);i++) {
+        int n = String.valueOf(a).length();
+        int m = String.valueOf(b).length();
+        for (int i=n;i<=m;i++) {
             result.addAll(Utils.allStrobogrammatic(i,i));
         }
         return result.stream().map(s -> Integer.parseInt(s))
