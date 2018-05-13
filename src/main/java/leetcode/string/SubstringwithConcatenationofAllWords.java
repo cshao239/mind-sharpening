@@ -19,6 +19,8 @@ public class SubstringwithConcatenationofAllWords {
 
         List<Integer> result = new ArrayList<>();
 
+        //construct a hashmap to be a signature of the allWords
+        //later we will make a copy of this map to delete from for each iteration
         Map<String,Integer> signature = new HashMap<>();
         Arrays.stream(allWords).forEach( ss -> {
             signature.put(ss,signature.getOrDefault(ss,0)+1);
@@ -26,6 +28,8 @@ public class SubstringwithConcatenationofAllWords {
 
         for (int i=0;i<s.length()-totalLength+1;i++) {
             Map<String,Integer> tobedelete = new HashMap<>(signature);
+
+            //we evaluate substring by lengthOfEach
             for (int j=i+lengthOfEach;j<i+totalLength+1;j=j+lengthOfEach) {
                 String thisSub = s.substring(j-lengthOfEach,j);
                 if (!tobedelete.containsKey(thisSub) || tobedelete.get(thisSub)<=0){
