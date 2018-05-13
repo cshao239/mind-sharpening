@@ -105,13 +105,13 @@ public class Utils {
         return result;
     }
 
-    public List<Integer> indexesOf(String s, String word) {
+    public static List<Integer> indexesOf(String s, String word) {
         List<Integer> result = new ArrayList<>();
         int index = s.indexOf(word);
         while (index >=0){
             System.out.println("Index : "+index);
             result.add(index);
-            index = word.indexOf(s, index+1);
+            index = s.indexOf(word, index+1);
         }
         return result;
     }
